@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="open data innovation">
+	<meta name="author" content="sw9n14">
+
+	<title>Open Data Innovation</title>
+
+<!--
+	<link rel="shortcut icon" href="favicon.ico">
+<link rel="icon" type="image/gif" href="animated_favicon1.gif">
+-->
+
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+
+	<!--DC CSS-->
+	<link href="css/dc.css" rel="stylesheet">
+
+	<!--dataTables CSS-->
+	<link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="css/style.css" rel="stylesheet">
+
+	<!-- Custom Fonts -->
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="css/font.css" rel="stylesheet" type="text/css">
+
+	<!-- Zoom Css -->
+	<link href="css/zoom.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+	<nav id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+			<li class="sidebar-brand">
+				<a href="#top" onclick=$ ( "#menu-close").click();>Menu</a>
+			</li>
+			<li>
+				<a href="#top" onclick=$ ( "#menu-close").click();>Home</a>
+			</li>
+			<li>
+				<a href="#about" onclick=$ ( "#menu-close" ).click();>About</a>
+			</li>
+			<li>
+				<a href="#cleaning" onclick=$ ( "#menu-close").click();>Data Cleaning</a>
+			</li>
+			<li>
+				<a href="#manipulation" onclick=$ ( "#menu-close").click();>Data Manipulation</a>
+			</li>
+			<li>
+				<a href="#visualisation" onclick=$ ( "#menu-close").click();>Data Visualisation</a>
+			</li>
+
+		</ul>
+	</nav>
+
+	<!-- Header -->
+	<header id="top" class="header">
+		<div class="text-vertical-center">
+			<h1>Open Data Innovation</h1>
+			<h3>Data Cleaning &amp; Data Manipulation &amp; Data Visualisation</h3>
+			<br>
+			<a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+		</div>
+	</header>
+
+	<!-- About -->
+	<section id="about" class="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<br>
+					<h2><strong>COMP6214: Open Data Innovation@Coursework#1</strong></h2>
+					<br>
+					<p class="lead">The purpose of this website is to display the processces below:
+						<br>Data Cleaning &amp; Data Manipulation &amp; Data Visualisation
+
+					</p>
+				</div>
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.container -->
+	</section>
+
+	<section id="about" class="about bg-primary">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-lg-10 col-lg-offset-1">
+					<h2>About</h2>
+					<hr class="small">
+					<div class="row">
+						<div class="col-md-4 col-sm-6">
+							<div class="about-item">
+								<span class="fa-stack fa-4x">
+                               <i class="fa fa-eraser"></i>
+                            </span>
+								<h4>
+                                    <strong>Data Cleaning</strong>
+                                </h4>
+								<p>Cleaning Data</p>
+								<a href="#cleaning" class="btn btn-light">Learn More</a>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="about-item">
+								<span class="fa-stack fa-4x">
+                              <i class="fa fa-table"></i>
+                            </span>
+								<h4>
+                                    <strong>Data Manipulation</strong>
+                                </h4>
+								<p>Manipulating Data</p>
+								<a href="#manipulation" class="btn btn-light">Learn More</a>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="about-item">
+								<span class="fa-stack fa-4x">
+								<i class="fa fa-bar-chart"></i>
+                               
+                            </span>
+								<h4>
+                                    <strong>Data Visualisation</strong>
+                                </h4>
+								<p>Visualising Data</p>
+								<a href="#visualisation" class="btn btn-light">Learn More</a>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6">
+						</div>
+					</div>
+					<!-- /.row (nested) -->
+				</div>
+				<!-- /.col-lg-10 -->
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.container -->
+	</section>
+
+	<!-- Callout -->
+	<!--
+	<aside class="callout">
+	<div class="text-vertical-center">
+		<h1>Vertically Centered Text</h1>
+	</div>
+</aside>
+-->
+
+	<!-- Cleaning -->
+	<section id="cleaning" class="cleaning">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-lg-offset-1 text-center">
+					<h2>Data Cleaning</h2>
+					<hr class="small">
+					<p class="paragraph">Open data, sometimes will contain a great number of errors within them. These errors vary from simple spelling errors, to the more complex errors. So, data cleaning is an important phase to ensure that when the data is used, the right conclusions are made. This coursework is going to focus on the following errors and give some solutions to them. </p>
+					<hr class="small">
+
+					<h3>1 Mixed Date Formats</h3>
+					<hr class="small">
+					<p class="paragraph">Mixed date formats are one of the most common errors in datasets. In this case, date formats of most cells are <em>dd/mm/yyyy (i.e. 7/12/2012)</em>, while those of other cells are <em>yyyy-dd-mm (i.e. 2012-12-01)</em>. In order to fix this kind of errors, find the columns and select <em>Edit cells</em> -> <em>Common transforms</em> -> <em>To date</em> to transform all dates into the same format: <em>yyyy-mm-ddThh:mm:ssZ</em>”.
+					</p>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/import_data.png" data-action="zoom">
+								<h4>Import Data</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/inconsistent_data_format_transform.png" data-action="zoom">
+								<h4>Transform Date Format
+</h4>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/inconsistent_data_format_before.png" data-action="zoom">
+								<h4>Date Format Before
+</h4>
+							</div>
+						</div>
+						<div class="col-md-6 ">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/inconsistent_data_format_after.png" data-action="zoom">
+								<h4>Date Format After
+</h4>
+							</div>
+						</div>
+					</div>
+					<hr class="small">
+					<h3>2 Blank Records</h3>
+					<hr class="small">
+					<p class="paragraph">Sometimes there are some blank records in datasets. In order to remove these blank records, firstly create a text facet for <em>Unique Investment Identifier</em> column, then find the blank rows and select <em>All</em> -> <em>Edit Rows</em> -> <em>Remove all matching rows</em> to remove them.
+					</p>
+					<div class="row">
+						<div class="col-md-6 ">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/blank_records_text_facet.png" data-action="zoom">
+								<h4>Facet By Text</h4>
+							</div>
+						</div>
+						<div class="col-md-6 ">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/blank_records_matching_rows.png" data-action="zoom">
+								<h4>Find Blank Rows</h4>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/blank_records_remove_rows.png" data-action="zoom">
+								<h4>Remove Matching Rows</h4>
+							</div>
+						</div>
+					</div>
+					<hr class="small">
+					<h3>3 Duplicate Records</h3>
+					<hr class="small">
+					<p class="paragraph">To eliminate duplicate records, it is necessary to bring them together at first. This is most easily done by sorting them on unique value, such as <em>project ID</em>. First of all, select the triangle of <em>project ID</em> column and sort these values as numbers. Then, click <em>Sort</em> -> <em>Reorder Row Permanently</em> to ensure that identical rows now are adjacent to each other. Next, click the triangle of <em>project ID</em> and select <em>Edit Cells</em> -> <em>Blank Down</em>. Then create a facet on blank cells and select duplicate records by clicking on true. Finally, use <em>Remove all matching rows</em> to remove these duplicate records. Apart from this method, there exists another one. Select <em>Facet</em> -> <em>Customized facets</em> -> <em>Duplicates facet</em> to find duplicate records and remove them.
+					</p>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/duplicate_records_sort_by_number.png" data-action="zoom">
+								<h4>Sort By Numbers</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/duplicate_records_sort_row_permenantly.png" data-action="zoom">
+								<h4>Sort Rows Permanently</h4>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/duplicate_records_blank_down.png" data-action="zoom">
+								<h4>Blank Down</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/duplicate_records_facet_by_blank.png" data-action="zoom">
+								<h4>Facet By Blank</h4>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/duplicate_records_remove_matching_rows.png" data-action="zoom">
+								<h4>Remove Mathcing Rows</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/duplicate_records_duplicate_facet.png" data-action="zoom">
+								<h4>Duplicates Facet</h4>
+							</div>
+						</div>
+
+					</div>
+					<hr class="small">
+					<h3>4 Multiple Representations</h3>
+					<hr class="small">
+					<p class="paragraph">Many abbreviations existing in datasets can result in ambiguity. In this dataset, for instance, <em>DOA</em> stands for <em>Department of Agriculture</em>. This problem can be solved manually using <em>Edit</em>. Besides, some whitespaces where there should not be can be a problem. But two methods are provided by OpenRefine. The first method is to trim whitespaces separately using <em>Edit</em>. Another one is to select <em>Edit cells</em> -> <em>Common transforms</em> -> <em>Trim leading and trailing whitespace</em>. Moreover, cluster function is a good choice to clean the dataset, which can help to correct typos and minor spelling differences.
+					</p>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/differnet_representations_trim_whitespaces_separately.png" data-action="zoom">
+								<h4>Trim Whitespaces Separately</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/different_representations_trim_whitespaces.png" data-action="zoom">
+								<h4>Trim Whitespaces</h4>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/different_representations_edit_abbreviation.png" data-action="zoom">
+								<h4>Modify Abbreviations</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/different_representations_cluster.png" data-action="zoom">
+								<h4>Cluster</h4>
+							</div>
+						</div>
+
+					</div>
+					<hr class="small">
+					<h3>5 Redundant Commas</h3>
+					<hr class="small">
+					<p class="paragraph">Putting commas in numbers helps a human, but to a computer these commas are redundant. To get rid of the commas, create a facet by number and select <em>Non-numeric</em> values at first. Then select <em>Edit cells</em> -> <em>Transforms</em> and delete commas using Expression: <em>value.replace(",", "")</em>. Finally, transform these new cell into numbers.
+					</p>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/unexpected_commas_numeric_facet.png" data-action="zoom">
+								<h4>Facet By Number</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/unexpected_commas_select_non-numeric.png" data-action="zoom">
+								<h4>Select Non-numeric</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/unexpected_commas_value_replace.png" data-action="zoom">
+								<h4>Delete Commas Using Expression</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/unexpected_commas_transform_to_number.png" data-action="zoom">
+								<h4>Transform To Number</h4>
+							</div>
+						</div>
+					</div>
+					<hr class="small">
+					<h3>6 Mixed Use of Numerical Scales
+</h3>
+					<hr class="small">
+					<p class="paragraph">Using numeric facet to <em>Lifecycle Cost</em> column is a good method to illustrate the distribution of these values, but the distribution is so large and it may lead to audit failure. In this case, expression: <em>value.log()</em> can be used to make the distribution more even. Fisrt of all, create a facet by number. Then, use expression: <em>value.replace("($m)", "")</em> to delete <em>($m)</em>. At last, normalize the values or distribute the values evenly using expression:<em>value.log()</em>
+					</p>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/different_unit_scales_numeric_facet.png" data-action="zoom">
+								<h4>Facet By Number</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/different_unit_scales_replace_$m.png" data-action="zoom">
+								<h4>Delelte ($m) Using Expression</h4>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/different_unit_scales_value_log.png" data-action="zoom">
+								<h4>Normalization Using Expression</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/different_unit_scales_result.png" data-action="zoom">
+								<h4>Results in Normalization</h4>
+							</div>
+						</div>
+					</div>
+					<hr class="small">
+					<h3>7 Spelling Errors</h3>
+					<hr class="small">
+					<p class="paragraph">Spelling errors are one of the most common errors in datasets. While this kind of error is not critical in all cases, it can lead to awkwardness when querying and visualising data. This kind of error can be fixed manually by using <em>Edit</em> function.
+					</p>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/misspellings_edit_misspellings.png" data-action="zoom">
+								<h4>Modify Spelling Errors</h4>
+							</div>
+						</div>
+
+					</div>
+					<hr class="small">
+					<h3>8 Redundant Data</h3>
+					<hr class="small">
+					<p class="paragraph">Sometimes, not all data will be used for data manipulation and viasualtion. So, datasets will contain some redundant data within them. In this dataset, <em>Project Description</em> can be redundant data. In order to get rid of this column, click the triangle of <em>Project Description</em> and select <em>Edit column</em>. Finally, use <em>Remove this column</em> to delete them.
+					</p>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/redundant_data_remove_columns.png" data-action="zoom">
+								<h4>Remove Redundant Data</h4>
+							</div>
+						</div>
+						<!--
+						<div class="col-md-6">
+	<div class="portfolio-item">
+
+		<img class="img-portfolio img-responsive img-thumbnail" src="img/redundant_data_remove_redundant_data.png" data-action="zoom">
+		<h4>Remove Redundant Data</h4>
+	</div>
+</div>
+-->
+					</div>
+					<hr class="small">
+					<!-- /.row (nested) -->
+
+				</div>
+				<!-- /.col-lg-10 -->
+			</div>
+			<!-- /.row -->
+		</div>
+
+	</section>
+
+
+	<!-- Manipulation -->
+	<section id="manipulation" class="manipulation">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-lg-offset-1 text-center">
+					<h2>Data Manipulation</h2>
+					<hr class="small">
+					<p class="paragraph">Apart from data cleaning, data manipulation is also an important phase for data visualisation. In this phase, datasets are normally manipulated to make them more readable or organized. So, this dataset is also manipulated as below in order to visualise it. </p>
+					<hr class="small">
+
+					<h3>1 Add Duration Year Column</h3>
+					<hr class="small">
+					<p class="paragraph"><em>Start Date</em> and <em>Completion Date</em> are given in this dataset, so duration year can be obtained according to the differences between these two columns. So firstly, click the triangle of <em>Completion Date</em>, then select <em>Edit column</em> -> <em>Add column based on this column</em> to add new column. The final step is to use expression: <em>diff(value,cells["Start Date"].value, "years")</em> to get values of <em>Duration Year</em> for each project.
+					</p>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/data_manipulation_add_columns.png" data-action="zoom">
+								<h4>Select Add Columns</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/data_manipulation_add_duration_year.png" data-action="zoom">
+								<h4>Add Duration Year Columns Using Expression
+</h4>
+							</div>
+						</div>
+					</div>
+					<hr class="small">
+					<h3>2 Add Project Status Column</h3>
+					<hr class="small">
+					<p class="paragraph">Likewise, the status of each project can be obtained by using expresion: <em>if &#40;cells&#91;"Scedule Variance &#40;in days&#41;"&#93;.value &lt; 0, "delay", if cells&#91;"Schedule Variance &#40;in days&#41;"&#93;.value &gt; 0, "advance", "onTime"&#41;&#41;</em>. So, if the value of <em>Schedule Variance</em> is less than 0, equals 0 or more than 0, the status of project is <em>delay</em>, <em>onTime</em> or <em>advance</em> respectively.
+					</p>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/data_manipulation_add_project_status.png" data-action="zoom">
+								<h4>Add Duration Year Columns Using Expression</h4>
+							</div>
+						</div>
+
+					</div>
+					<h3>3 Re-order Columns</h3>
+					<hr class="small">
+					<p class="paragraph">In order to make the dataset more readable and organized, columns can be re-ordered by selecting <em>Edit columns</em> -> <em>Re-order/remove columns</em>.
+					</p>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/data_manipulation_reorder_columns.png" data-action="zoom">
+								<h4>Select Re-order Columns</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/data_manipulation_reordered_columns.png" data-action="zoom">
+								<h4>Re-ordered Columns</h4>
+							</div>
+						</div>
+					</div>
+					<hr class="small">
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+
+	<!-- Visualisation -->
+	<!--	Visualisation#1   -->
+	<section id="visualisation" class="visualisation">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-lg-offset-1 text-center" id='data-count'>
+					<h2>Data Visualisation</h2>
+					<hr class="small">
+					<h3>Visualisation#1</h3>
+					<hr class="small">
+					<p class="paragraph">Visualisation#1 consists of three bar charts and one dount chart. These charts can provide a multi-faceted filter to the list of projects, shown in the table underneath. Three bar charts illustrate the number of projects in different <em>year</em>, <em>month</em> and <em>duration year</em> (ps: <em>0</em> means less than 1 year) respectivey. By contrast, the donut chart shows the status <em>(advance, onTime and delay)</em> and the number of projects. Drag the brush on any of the graphs will filter the projects displayed in the table, as well as the display of the other graphs.</p>
+
+					<p class="paragraph">The table displays a list of all projects that match the criteria selected in the graphs. Besides, the columns in the table can be searched by entering keywords and sorted in ascending or descending order.</p>
+					<hr class="small">
+					<!--
+<h4>
+          <span class="filter-count"></span> selected out of <span class="total-count"></span> records |
+           <a id="all">Reset All</a>		
+       </h4>
+-->
+
+					<h4>
+          <span class="filter-count"></span> selected out of <span class="total-count"></span> records |
+           <a id="all">Reset All</a>		
+       </h4>
+
+
+					<div class="row" id="control-row">
+						<div class="col-md-6">
+							<h3 align="center">Year <small><a id="year">reset</a></small></h3>
+							<div class="dc-chart" id="chart-year-count"></div>
+						</div>
+						<div class="col-md-6">
+							<h3 align="center">Month <small><a id="month">reset</a></small></h3>
+							<div class="dc-chart" id="chart-month-count"></div>
+						</div>
+
+					</div>
+					<div class="row">
+
+						<div class="col-md-6">
+							<h3 align="center">Duration <small><a
+					 id="duration">reset</a></small></h3>
+							<div class="dc-chart" id="chart-duration-count"></div>
+						</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3">
+									<h3 align="center">Status <small><a id="status">reset</a></small></h3>
+
+									<div class="dc-chart pie-chart" id="chart-ring-status"></div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<h3 align="center">Project Info </h3>
+							<table class="table table-hover dataTable no-footer" style="text-align:center;" id="data-table">
+								<thead>
+									<tr>
+										<th style="text-align:center">Unique Project ID</th>
+										<th style="text-align:center">Agency Name</th>
+										<th style="text-align:center">Start Date</th>
+										<th style="text-align:center">Duration Year</th>
+										<th style="text-align:center">Project Status</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!--	Visualisation#2   -->
+	<section id="visualisation2" class="visualisation">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 col-lg-offset-1 text-center" id='data-count-2'>
+
+					<hr class="small">
+					<h3>Visualisation#2</h3>
+					<hr class="small">
+					<p class="paragraph">In visualisation#2, there is one row chart, three bar charts, and one composite (group) chart. The row chart lists all agencies/departments according to their number of projects in descending order. Three bar charts show the total of <em>Lifecycle Cost</em>, <em>Planned Cost</em> and <em>Projected/Actual Cost</em> of selected agencies/departments in different year respectively. The composite (group) chart also illustrates the total of three different kinds of cost in different year, but this chart can help to compare them at ease. </p>
+
+					<p class="paragraph">Similarly, the table can present detailed information of filtered projects by clicking on any of the graphs. </p>
+					<hr class="small">
+
+
+					<h4>
+          <span class="filter-count"></span> selected out of <span class="total-count"></span> records |
+           <a id="all">Reset All</a>		
+       </h4>
+
+					<div class="row">
+						<div class="col-md-4">
+							<h3 align="center">Project Counts <small><a
+					 id="agencyRow">reset</a></small></h3>
+							<div class="dc-chart" id="chart-agency-row"></div>
+						</div>
+						<div class="col-md-8">
+
+							<div class="row">
+								<div class="col-md-9 col-md-offset-3">
+									<h3 align="center">Lifecycle Cost ($M) <small><a id="lifecycleCost">reset</a></small></h3>
+									<div class="dc-chart" id="chart-bar-lifecycleCost"></div>
+								</div>
+								<div class="col-md-9 col-md-offset-3">
+									<h3 align="center">Planned Cost ($M) <small><a id="plannedCost">reset</a></small></h3>
+									<div class="dc-chart" id="chart-bar-plannedCost"></div>
+								</div>
+								<div class="col-md-9 col-md-offset-3">
+									<h3 align="center">Projected/Actual Cost ($M) <small><a id="projectedCost">reset</a></small></h3>
+									<div class="dc-chart" id="chart-bar-projectedCost"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<h3 align="center">All Cost</h3>
+							<div class="dc-chart" id="chart-composite-allCost"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<h3 align="center">Project Info </h3>
+							<table class="table table-hover dataTable no-footer" style="text-align:center;" id="data-table2">
+								<thead>
+									<tr>
+										<th style="text-align:center">Unique Project ID</th>
+										<th style="text-align:center">Agency Name</th>
+										<th style="text-align:center">Start Date</th>
+										<th style="text-align:center">Lifecycle Cost ($M)</th>
+										<th style="text-align:center">Planned Cost ($M)</th>
+										<th style="text-align:center">Projected/Actual Cost ($M)</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<hr class="small">
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+	<!-- D3js -->
+	<script src="js/d3.min.js" charset="utf-8"></script>
+
+
+	<!-- crossfilter.js -->
+	<script src="js/crossfilter.js"></script>
+
+	<!-- dc.js -->
+	<script src="js/dc.js"></script>
+
+	<!--	colorbrewer.js-->
+	<script src="js/colorbrewer.js"></script>
+
+
+	<!--chart1.js-->
+	<script src="js/chart1.js"></script>
+
+	<!--chart2.js-->
+	<script src="js/chart2.js"></script>
+
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+
+	<!--dataTables-->
+	<script src="js/jquery.dataTables.min.js"></script>
+	<script src="js/dataTables.bootstrap.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Zoom Javascript -->
+	<script src="js/zoom.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script>
+		// Opens the sidebar menu
+		$("#menu-toggle").click(function (e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		});
+
+		// Closes the sidebar menu
+		$("#menu-close").click(function (e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		});
+
+		// Scrolls to the selected menu item on the page
+		$(function () {
+			$('a[href*=#]:not([href=#])').click(function () {
+				if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+					var target = $(this.hash);
+					target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+					if (target.length) {
+						$('html,body').animate({
+							scrollTop: target.offset().top
+						}, 1000);
+						return false;
+					}
+				}
+			});
+		});
+	</script>
+</body>
+
+<!-- Footer -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 col-lg-offset-1 text-center">
+				<h4><strong>University of Southampton</strong>
+                    </h4>
+				<p>School of Electronics and Computer Science</p>
+				<ul class="list-unstyled">
+					<li><a href="mailto:sw9n14@soton.ac.uk">Shanchuan Wu</a></li>
+				</ul>
+
+				<hr class="small">
+				<p class="text-muted">Copyright &copy; Open Data Innovation 2016</p>
+			</div>
+		</div>
+	</div>
+	<div id="gotop">˄</div>
+</footer>
+
+
+</html>
