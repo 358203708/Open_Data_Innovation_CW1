@@ -11,7 +11,7 @@
 
 	<title>Open Data Innovation</title>
 
-<!--
+	<!--
 	<link rel="shortcut icon" href="favicon.ico">
 <link rel="icon" type="image/gif" href="animated_favicon1.gif">
 -->
@@ -168,7 +168,7 @@
 				<div class="col-lg-10 col-lg-offset-1 text-center">
 					<h2>Data Cleaning</h2>
 					<hr class="small">
-					<p class="paragraph">Open data, sometimes will contain a great number of errors within them. These errors vary from simple spelling errors, to the more complex errors. So, data cleaning is an important phase to ensure that when the data is used, the right conclusions are made. This coursework is going to focus on the following errors and give some solutions to them. </p>
+					<p class="paragraph">Open data, sometimes will contain a great number of problems and errors within them. These problems and errors vary from simple spelling errors, to the more complex errors. So, data cleaning is an important phase to ensure that when the data is used, the right conclusions are made. This coursework is going to focus on the following problems and errors and give some solutions to them. </p>
 					<hr class="small">
 
 					<h3>1 Mixed Date Formats</h3>
@@ -425,7 +425,7 @@
 					<hr class="small">
 					<h3>8 Redundant Data</h3>
 					<hr class="small">
-					<p class="paragraph">Sometimes, not all data will be used for data manipulation and viasualtion. So, datasets will contain some redundant data within them. In this dataset, <em>Project Description</em> can be redundant data. In order to get rid of this column, click the triangle of <em>Project Description</em> and select <em>Edit column</em>. Finally, use <em>Remove this column</em> to delete them.
+					<p class="paragraph">Sometimes, not all data will be used for data manipulation and viasualtion. So, datasets will contain some redundant data within them. In this dataset, for instance, <em>Project Description</em> can be redundant data, thus it is common that errors are made when entering it. In order to get rid of this column, click the triangle of <em>Project Description</em> and select <em>Edit column</em>. Finally, use <em>Remove this column</em> to delete them.
 					</p>
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
@@ -435,15 +435,43 @@
 								<h4>Remove Redundant Data</h4>
 							</div>
 						</div>
-						<!--
-						<div class="col-md-6">
-	<div class="portfolio-item">
 
-		<img class="img-portfolio img-responsive img-thumbnail" src="img/redundant_data_remove_redundant_data.png" data-action="zoom">
-		<h4>Remove Redundant Data</h4>
-	</div>
-</div>
--->
+					</div>
+					<hr class="small">
+					<h3>9 Summation Records</h3>
+					<hr class="small">
+					<p class="paragraph">When datasets are extracted from a spreadsheet application, it is common that datasets contain total records, which make it inconvenient to process the data. In this case, they should be removed. In order to remove them, apply a text facet to the <em>Unique Investment Identifier</em> column and select all <em>Total</em> records and star them. Next, select <em>Facet by star</em> and use <em>Edit Rows</em> -> <em>Removing all matching rows</em> to remove them.
+					</p>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/redundant_data_facet_by_text_total_records.png" data-action="zoom">
+								<h4>Facet By Text</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/redundant_data_star_total_records.png" data-action="zoom">
+								<h4>Star Total Records</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/redundant_data_facet_by_star_total_records.png" data-action="zoom">
+								<h4>Facet By Star</h4>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="portfolio-item">
+
+								<img class="img-portfolio img-responsive img-thumbnail" src="img/redundant_data_remove_total_records.png" data-action="zoom">
+								<h4>Remove Total Records</h4>
+							</div>
+						</div>
+
 					</div>
 					<hr class="small">
 					<!-- /.row (nested) -->
