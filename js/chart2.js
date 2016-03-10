@@ -104,7 +104,6 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 			return 10;
 		})
 		.renderHorizontalGridLines(true)
-		.renderVerticalGridLines(true)
 		.render();
 
 
@@ -134,7 +133,6 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 			return 10;
 		})
 		.renderHorizontalGridLines(true)
-		.renderVerticalGridLines(true)
 		.render();
 
 	plannedCostChart.on('renderlet', function (chart) {
@@ -163,7 +161,6 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 			return 10;
 		})
 		.renderHorizontalGridLines(true)
-		.renderVerticalGridLines(true)
 		.render();
 
 	projectedCostChart.on('renderlet', function (chart) {
@@ -209,7 +206,6 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 	])
 		.legend(dc.legend().x(130).y(20).itemHeight(13).gap(3))
 		.renderHorizontalGridLines(true)
-		.renderVerticalGridLines(true)
 		.render();
 
 	allCostChart.on('renderlet', (function (chart) {
@@ -234,7 +230,7 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		.group(agencyNameGroup)
 		.label(function (d) {
 
-			return d.key;
+			return d.key + ": " + d.value;
 		})
 		.title(function (d) {
 

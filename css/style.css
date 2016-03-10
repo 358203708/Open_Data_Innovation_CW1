@@ -157,7 +157,7 @@ hr.small {
 	width: 100%;
 	height: 100%;
 	/*	background:#337ab7;*/
-	background: url(http://www.myelomacrowd.org/wp-content/uploads/2015/08/photodune-11157659-big-data-science-concept-l.jpg) no-repeat center center scroll;
+	background: url(/img/website_background.jpg) no-repeat center center scroll;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;

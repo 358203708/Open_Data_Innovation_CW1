@@ -165,6 +165,7 @@
 	<section id="cleaning" class="cleaning">
 		<div class="container">
 			<div class="row">
+
 				<div class="col-lg-10 col-lg-offset-1 text-center">
 					<h2>Data Cleaning</h2>
 					<hr class="small">
@@ -569,17 +570,12 @@
 					<hr class="small">
 					<h3>Visualisation#1</h3>
 					<hr class="small">
-					<p class="paragraph">Visualisation#1 consists of three bar charts and one dount chart. These charts can provide a multi-faceted filter to the list of projects, shown in the table underneath. Three bar charts illustrate the number of projects in different <em>year</em>, <em>month</em> and <em>duration year</em> (ps: <em>0</em> means less than 1 year) respectivey. By contrast, the donut chart shows the status <em>(advance, onTime and delay)</em> and the number of projects. Drag the brush on any of the graphs will filter the projects displayed in the table, as well as the display of the other graphs.</p>
+					<p class="paragraph">Visualisation#1 consists of three bar charts and one dount chart. These charts can provide a multi-faceted filter to the list of projects, shown in the table below. Three bar charts illustrate the number of projects in different <em>years</em>, <em>months</em> and <em>duration years</em> (ps: <em>0</em> means less than 1 year) respectivey. By contrast, the donut chart shows the status <em>(advance, onTime and delay)</em> and the number of projects. </p>
 
-					<p class="paragraph">The table displays a list of all projects that match the criteria selected in the graphs. Besides, the columns in the table can be searched by entering keywords and sorted in ascending or descending order.</p>
+					<p class="paragraph">Dragging the brushes on bar charts or selecting the status on the donut chart will filter the projects displayed in the table, as well as the display of the other graphs. The table displays a list of all projects that match the conditions selected in the graphs. Besides, the records in the table can be searched by entering keywords and sorted in ascending or descending order.</p>
+
+					<p class="paragraph">Visualisation#1 is designed for readers who want to know the number of projects in different <em>years</em>, <em>months</em>, <em>duration years</em> and types of <em>status</em>.</p>
 					<hr class="small">
-					<!--
-<h4>
-          <span class="filter-count"></span> selected out of <span class="total-count"></span> records |
-           <a id="all">Reset All</a>		
-       </h4>
--->
-
 					<h4>
           <span class="filter-count"></span> selected out of <span class="total-count"></span> records |
            <a id="all">Reset All</a>		
@@ -650,9 +646,11 @@
 					<hr class="small">
 					<h3>Visualisation#2</h3>
 					<hr class="small">
-					<p class="paragraph">In visualisation#2, there is one row chart, three bar charts, and one composite (group) chart. The row chart lists all agencies/departments according to their number of projects in descending order. Three bar charts show the total of <em>Lifecycle Cost</em>, <em>Planned Cost</em> and <em>Projected/Actual Cost</em> of selected agencies/departments in different year respectively. The composite (group) chart also illustrates the total of three different kinds of cost in different year, but this chart can help to compare them at ease. </p>
+					<p class="paragraph">In visualisation#2, there is one row chart, three bar charts, and one composite (grouped) chart. The row chart lists all agencies/departments according to the numbers of their projects in descending order. Three bar charts show the sum of <em>Lifecycle Cost</em>, <em>Planned Cost</em> and <em>Projected/Actual Cost</em> of selected agencies/departments in different years respectively. Likewise, the composite (grouped) chart illustrates the sums of three kinds of costs in different years, but this chart can help to compare them at ease. </p>
 
-					<p class="paragraph">Similarly, the table can present detailed information of filtered projects by clicking on any of the graphs. </p>
+					<p class="paragraph">Similarly, the row chart and three bar charts can be used to filter the projects displayed in the table. Moreover, the row chart can show the number of different agencies/departments' projects. When the mouse hovers over one of three legends in the composite (grouped) chart, the bars of another two kinds of costs will become transpartent, which helps to compare the costs in different years. Apart from detailed information about filtered projects, the table can provide readers with searching and sorting function. </p>
+
+					<p class="paragraph">From visualisation#2, audiences can know the total number of selected agencies/departments' projects and compare the costs of them. </p>
 					<hr class="small">
 
 
@@ -761,10 +759,12 @@
 			$("#sidebar-wrapper").toggleClass("active");
 		});
 
+
 		// Closes the sidebar menu
 		$("#menu-close").click(function (e) {
 			e.preventDefault();
 			$("#sidebar-wrapper").toggleClass("active");
+			$("#sidebar-wrapper").toggleClass("inactive");
 		});
 
 		// Scrolls to the selected menu item on the page

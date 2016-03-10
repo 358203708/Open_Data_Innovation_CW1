@@ -65,10 +65,10 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 
 	var all = ndx.groupAll();
 
-	var countPerYear = yearDim.group(),
-		countPerMonth = monthDim.group(),
-		countPerDuration = durationDim.group(),
-		countPerStatus = statusDim.group();
+	var countPerYear = yearDim.group().reduceCount(),
+		countPerMonth = monthDim.group().reduceCount(),
+		countPerDuration = durationDim.group().reduceCount(),
+		countPerStatus = statusDim.group().reduceCount();
 
 	//yearChart
 	yearChart
@@ -76,7 +76,6 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		.height(320)
 		.dimension(yearDim)
 		.group(countPerYear)
-		//		.group(remove_empty_bins(countPerYear))
 		.x(d3.scale.linear().domain([1990, d3.max(data, function (d) {
 			return d.year + 2;
 		})]))
@@ -89,7 +88,6 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 			return 10;
 		})
 		.renderHorizontalGridLines(true)
-		.renderVerticalGridLines(true)
 		.render();
 
 	yearChart.on('renderlet', function (chart) {
@@ -112,7 +110,6 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		.yAxisLabel('Count')
 		.xUnits(d3.time.months)
 		.renderHorizontalGridLines(true)
-		.renderVerticalGridLines(true)
 		.render();
 
 	monthChart.on('renderlet', function (chart) {
@@ -137,8 +134,8 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		.yAxisLabel('Count')
 		.xUnits(function (d) {
 			return 10;
-		}).renderHorizontalGridLines(true)
-		.renderVerticalGridLines(true)
+		})
+		.renderHorizontalGridLines(true)
 		.render();
 
 	durationChart.on('renderlet', function (chart) {
@@ -156,9 +153,10 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		.dimension(statusDim)
 		.group(countPerStatus)
 		.cx(150).cy(150)
-		.ordinalColors(["#1f77b4", "#d62728", "#2ca02c", ]).label(function (d) {
+		.ordinalColors(["#1f77b4", "#d62728", "#2ca02c", ])
+		.label(function (d) {
 
-			return (d.key);
+			return d.key + ": " + d.value;
 		})
 		.innerRadius(50)
 		.legend(dc.legend().x(125).y(130).itemHeight(13).gap(3));

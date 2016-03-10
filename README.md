@@ -37,7 +37,7 @@ DataTables is a plug-in for the [jQuery](https://jquery.com/) Javascript library
 
 ##Contact
 * Email: sw9n14@soton.ac.uk
-* personal homepage: http://users.ecs.soton.ac.uk/sw9n14/
+* Personal homepage: http://users.ecs.soton.ac.uk/sw9n14/
 
 
 
