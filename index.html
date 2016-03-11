@@ -46,22 +46,22 @@
 		<ul class="sidebar-nav">
 			<a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
 			<li class="sidebar-brand">
-				<a href="#top" onclick=$ ( "#menu-close").click();>Menu</a>
+				<a href="#top" onclick='$ ( "#menu-close").click();'>Menu</a>
 			</li>
 			<li>
-				<a href="#top" onclick=$ ( "#menu-close").click();>Home</a>
+				<a href="#top" onclick='$ ( "#menu-close").click();'>Home</a>
 			</li>
 			<li>
-				<a href="#about" onclick=$ ( "#menu-close" ).click();>About</a>
+				<a href="#about" onclick='$ ( "#menu-close").click();'>About</a>
 			</li>
 			<li>
-				<a href="#cleaning" onclick=$ ( "#menu-close").click();>Data Cleaning</a>
+				<a href="#cleaning" onclick='$ ( "#menu-close").click();'>Data Cleaning</a>
 			</li>
 			<li>
-				<a href="#manipulation" onclick=$ ( "#menu-close").click();>Data Manipulation</a>
+				<a href="#manipulation" onclick='$ ( "#menu-close").click();'>Data Manipulation</a>
 			</li>
 			<li>
-				<a href="#visualisation" onclick=$ ( "#menu-close").click();>Data Visualisation</a>
+				<a href="#visualisation" onclick='$ ( "#menu-close").click();'>Data Visualisation</a>
 			</li>
 
 		</ul>
@@ -131,7 +131,7 @@
 							<div class="about-item">
 								<span class="fa-stack fa-4x">
 								<i class="fa fa-bar-chart"></i>
-                               
+
                             </span>
 								<h4>
                                     <strong>Data Visualisation</strong>
@@ -374,7 +374,7 @@
 					<h3>6 Mixed Use of Numerical Scales
 </h3>
 					<hr class="small">
-					<p class="paragraph">Using numeric facet to <em>Lifecycle Cost</em> column is a good method to illustrate the distribution of these values, but the distribution is so large and it may lead to audit failure. In this case, expression: <em>value.log()</em> can be used to make the distribution more even. Fisrt of all, create a facet by number. Then, use expression: <em>value.replace("($m)", "")</em> to delete <em>($m)</em>. At last, normalize the values or distribute the values evenly using expression:<em>value.log()</em>
+					<p class="paragraph">Using numeric facet to <em>Lifecycle Cost</em> column is a good method to illustrate the distribution of these values, but the distribution is so large and it may lead to audit failure. In this case, expression: <em>value.log()</em> can be used to make the distribution more even. First of all, create a facet by number. Then, use expression: <em>value.replace("($m)", "")</em> to delete <em>($m)</em>. At last, normalize the values or distribute the values evenly using expression:<em>value.log()</em>
 					</p>
 					<div class="row">
 						<div class="col-md-6">
@@ -426,7 +426,7 @@
 					<hr class="small">
 					<h3>8 Redundant Data</h3>
 					<hr class="small">
-					<p class="paragraph">Sometimes, not all data will be used for data manipulation and viasualtion. So, datasets will contain some redundant data within them. In this dataset, for instance, <em>Project Description</em> can be redundant data, thus it is common that errors are made when entering it. In order to get rid of this column, click the triangle of <em>Project Description</em> and select <em>Edit column</em>. Finally, use <em>Remove this column</em> to delete them.
+					<p class="paragraph">Sometimes, not all data will be used for data manipulation and visualisation. So, datasets will contain some redundant data within them. In this dataset, for instance, <em>Project Description</em> can be redundant data, thus it is common that errors are made when entering it. In order to get rid of this column, click the triangle of <em>Project Description</em> and select <em>Edit column</em>. Finally, use <em>Remove this column</em> to delete them.
 					</p>
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3">
@@ -578,7 +578,7 @@
 					<hr class="small">
 					<h4>
           <span class="filter-count"></span> selected out of <span class="total-count"></span> records |
-           <a id="all">Reset All</a>		
+           <a id="all">Reset All</a>
        </h4>
 
 
@@ -648,15 +648,15 @@
 					<hr class="small">
 					<p class="paragraph">In visualisation#2, there is one row chart, three bar charts, and one composite (grouped) chart. The row chart lists all agencies/departments according to the numbers of their projects in descending order. Three bar charts show the sum of <em>Lifecycle Cost</em>, <em>Planned Cost</em> and <em>Projected/Actual Cost</em> of selected agencies/departments in different years respectively. Likewise, the composite (grouped) chart illustrates the sums of three kinds of costs in different years, but this chart can help to compare them at ease. </p>
 
-					<p class="paragraph">Similarly, the row chart and three bar charts can be used to filter the projects displayed in the table. Moreover, the row chart can show the number of different agencies/departments' projects. When the mouse hovers over one of three legends in the composite (grouped) chart, the bars of another two kinds of costs will become transpartent, which helps to compare the costs in different years. Apart from detailed information about filtered projects, the table can provide readers with searching and sorting function. </p>
+					<p class="paragraph">Similarly, the row chart and three bar charts can be used to filter the projects displayed in the table. Moreover, the row chart can show the number of different agencies/departments' projects. When the mouse hovers over one of three legends in the composite (grouped) chart, the bars of another two kinds of costs will become transparent, which helps to compare the costs in different years. Apart from detailed information about filtered projects, the table can provide readers with searching and sorting function. </p>
 
-					<p class="paragraph">From visualisation#2, audiences can know the total number of selected agencies/departments' projects and compare the costs of them. </p>
+					<p class="paragraph">Visualisation#2 can help audiences to know the total number of selected agencies/departments' projects and compare the costs of them. </p>
 					<hr class="small">
 
 
 					<h4>
           <span class="filter-count"></span> selected out of <span class="total-count"></span> records |
-           <a id="all">Reset All</a>		
+           <a id="all">Reset All</a>
        </h4>
 
 					<div class="row">
@@ -764,7 +764,6 @@
 		$("#menu-close").click(function (e) {
 			e.preventDefault();
 			$("#sidebar-wrapper").toggleClass("active");
-			$("#sidebar-wrapper").toggleClass("inactive");
 		});
 
 		// Scrolls to the selected menu item on the page
