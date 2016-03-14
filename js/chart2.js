@@ -3,6 +3,7 @@ var lifecycleCostChart = dc.barChart('#chart-bar-lifecycleCost'),
 	plannedCostChart = dc.barChart('#chart-bar-plannedCost'),
 	projectedCostChart = dc.barChart('#chart-bar-projectedCost'),
 	allCostChart = dc.compositeChart('#chart-composite-allCost'),
+	costBubbleChart = dc.bubbleChart('#chart-bubble-allCost'),
 	agencyRowChart = dc.rowChart('#chart-agency-row'),
 	dataCount2 = dc.dataCount('#data-count-2'),
 	dataTable2;
@@ -16,6 +17,7 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 
 	var dateFormat = d3.time.format('%Y-%m-%dT%H:%I:%SZ');
 	var yearFormat = d3.time.format('%Y');
+	var numberFormat = d3.format('.2f');
 
 	data.forEach(function (d) {
 		d.dd = dateFormat.parse(d["Start_Date"]);
@@ -25,6 +27,10 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		d.plannedCost = +d["Planned_Cost"];
 		d.projectedCost = +d["Projected_Actual_Cost"];
 		d.agnecyName = d["Agency_Name"];
+		d.costVariance = +d["Cost_Variance"];
+		d.scheduleVariance = +d["Schedule_Variance"];
+		d.costVariancePercentage = +d["Cost_Variance(%)"];
+		d.scheduleVariancePercentage = +d["Schedule_Variance(%)"];
 
 	});
 
@@ -33,6 +39,10 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 
 
 	var yearDim = ndx.dimension(function (d) {
+			return d.year;
+		}),
+
+		yearCostDim = ndx.dimension(function (d) {
 			return d.year;
 		}),
 
@@ -57,6 +67,50 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 
 
 	var all = ndx.groupAll();
+
+	var yearCostGroup = yearCostDim.group().reduce(
+		function (p, v) {
+			++p.count;
+			p.costVariance += v.costVariance;
+			p.avgCostVariance = p.count ? (p.costVariance / p.count) : 0;
+			p.scheduleVariance += v.scheduleVariance;
+			p.avgScheduleVariance = p.count ? (p.scheduleVariance / p.count) : 0;
+			p.costFluctuation += v.costVariancePercentage;
+			p.avgCostFluctuation = p.count ? (p.costFluctuation / p.count) : 0;
+			p.scheduleFluctuation += v.scheduleVariancePercentage;
+			p.avgScheduleFluctuation = p.count ? (p.scheduleFluctuation / p.count) : 0;
+			//			p.countPercentage = p.count / all.count;
+			return p;
+		},
+		function (p, v) {
+			--p.count;
+			p.costVariance -= v.costVariance;
+			p.avgCostVariance = p.count ? (p.costVariance / p.count) : 0;
+			p.scheduleVariance -= v.scheduleVariance;
+			p.avgScheduleVariance = p.count ? (p.scheduleVariance / p.count) : 0;
+			p.costFluctuation -= v.costVariancePercentage;
+			p.avgCostFluctuation = p.count ? (p.costFluctuation / p.count) : 0;
+			p.scheduleFluctuation -= v.scheduleVariancePercentage;
+			p.avgScheduleFluctuation = p.count ? (p.scheduleFluctuation / p.count) : 0;
+			//			p.countPercentage = p.count / all.count;
+			return p;
+		},
+		function () {
+			return {
+				count: 0,
+				costVariance: 0,
+				avgCostVariance: 0,
+				scheduleVariance: 0,
+				avgScheduleVariance: 0,
+				costFluctuation: 0,
+				avgCostFluctuation: 0,
+				scheduleFluctuation: 0,
+				avgScheduleFluctuation: 0
+					//				countPercentage: 0
+
+			};
+		});
+
 
 	var plannedCostGroup = yearDim.group().reduceSum(
 
@@ -100,6 +154,7 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		.brushOn(true)
 		.gap(30)
 		.yAxisLabel('Cost ($M)')
+		.yAxisPadding('5%')
 		.xUnits(function () {
 			return 10;
 		})
@@ -129,6 +184,7 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		.brushOn(true)
 		.gap(30)
 		.yAxisLabel('Cost ($M)')
+		.yAxisPadding('5%')
 		.xUnits(function () {
 			return 10;
 		})
@@ -157,6 +213,7 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		.brushOn(true)
 		.gap(30)
 		.yAxisLabel('Cost ($M)')
+		.yAxisPadding('5%')
 		.xUnits(function () {
 			return 10;
 		})
@@ -169,6 +226,75 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 			.attr('dy', '15')
 			.attr('transform', "rotate(45)"); // Rotate the y-axis labels 45 degrees
 	});
+
+
+
+	//costBubbleChart
+	costBubbleChart
+		.width(970)
+		.height(400)
+		.dimension(yearCostDim)
+		.group(yearCostGroup)
+		.elasticY(true)
+		.elasticX(true)
+		.yAxisPadding(50)
+		.xAxisPadding(50)
+		.colors(colorbrewer.RdYlGn[9])
+		.colorDomain([-500, 500])
+		.colorAccessor(function (d) {
+			return d.value.count;
+		})
+		.keyAccessor(function (p) {
+			return p.value.avgCostFluctuation;
+		})
+		.valueAccessor(function (p) {
+			return p.value.avgScheduleFluctuation;
+		})
+		.radiusValueAccessor(function (p) {
+			return p.value.count;
+		})
+		.maxBubbleRelativeSize(0.3)
+		.x(d3.scale.linear().domain([-200, 200]))
+		.y(d3.scale.linear().domain([-200, 200]))
+		.r(d3.scale.linear().domain([0, 4000]))
+		.label(function (p) {
+			return p.key;
+		})
+		.renderLabel(true)
+		.xAxisLabel('Average Cost Variance %')
+		.yAxisLabel('Average Schedule Variance %')
+		.renderTitle(true)
+		.title(function (p) {
+			return [
+                'year: ' + p.key,
+                'Average Cost Variance: ' + numberFormat(p.value.avgCostVariance) + ' ($M)',
+				'Average Schedule Variance: ' + numberFormat(p.value.avgScheduleVariance) + ' (Days)',
+
+				'Average Cost Variance: ' + numberFormat(p.value.avgCostFluctuation) + '%',
+				'Avgrage Schedule Variance: ' + numberFormat(p.value.avgScheduleFluctuation) + '%',
+
+				'count: ' + p.value.count
+
+            ].join('\n');
+		})
+		.renderHorizontalGridLines(true)
+		.renderVerticalGridLines(true)
+		.yAxis().tickFormat(function (v) {
+			return v;
+		});
+
+	costBubbleChart.on('renderlet', function (chart) {
+		chart.selectAll("g.y text")
+			.attr('dx', '5')
+			.attr('dy', '15')
+			.attr('transform', "rotate(45)"); // Rotate the y-axis labels 45 degrees
+	});
+
+
+
+
+
+
 
 	//allCostChart
 	allCostChart
@@ -195,8 +321,7 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 	.group(plannedCostGroup, 'Planned Cost')
 	.barPadding(20)
 	.centerBar(true)
-	.colors('#2ca02c')
-		,
+	.colors('#2ca02c'),
 		dc.barChart(allCostChart)
 	.dimension(yearDim)
 	.group(projectedCostGroup, 'Projected/Actual Cost')
@@ -301,6 +426,7 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 	lifecycleCostChart.on("filtered", refreshDataTable);
 	plannedCostChart.on("filtered", refreshDataTable);
 	projectedCostChart.on("filtered", refreshDataTable);
+	costBubbleChart.on("filtered", refreshDataTable);
 	agencyRowChart.on("filtered", refreshDataTable);
 	allCostChart.on("filtered", refreshDataTable);
 
@@ -334,6 +460,10 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		dc.redrawAll();
 	});
 
+	d3.selectAll('a#costBubble').on('click', function () {
+		costBubbleChart.filterAll();
+		dc.redrawAll();
+	});
 
 
 	//Render the charts!

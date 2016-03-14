@@ -84,6 +84,7 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		.barPadding(15)
 		.gap(30)
 		.yAxisLabel('Count')
+		.yAxisPadding('10%')
 		.xUnits(function () {
 			return 10;
 		})
@@ -108,6 +109,7 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		.centerBar(true)
 		.barPadding(30)
 		.yAxisLabel('Count')
+		.yAxisPadding('10%')
 		.xUnits(d3.time.months)
 		.renderHorizontalGridLines(true)
 		.render();
@@ -132,6 +134,7 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		.centerBar(true)
 		.barPadding(5)
 		.yAxisLabel('Count')
+		.yAxisPadding('10%')
 		.xUnits(function (d) {
 			return 10;
 		})
@@ -155,11 +158,18 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		.cx(150).cy(150)
 		.ordinalColors(["#1f77b4", "#d62728", "#2ca02c", ])
 		.label(function (d) {
-
-			return d.key + ": " + d.value;
+			if (statusChart.hasFilter() && !statusChart.hasFilter(d.key)) {
+				return d.key + '(0%)';
+			}
+			var label = d.key;
+			if (all.value()) {
+				label += '(' + d.value + ', ' + Math.floor(d.value / all.value() * 100) + '%)';
+			}
+			return label;
 		})
 		.innerRadius(50)
-		.legend(dc.legend().x(125).y(130).itemHeight(13).gap(3));
+		.legend(dc.legend().x(125).y(130).itemHeight(13).gap(3))
+		.renderLabel(true);
 
 
 
