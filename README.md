@@ -43,7 +43,7 @@ Also, I upload all files to my Github homepage: https://github.com/358203708/Ope
 
 The row chart, the bubble chart and three bar charts can be used to filter the projects displayed in the table. Moreover, the row chart can show the number of different agencies/departments' projects and the bubble chart can provide detailed information via its tooltip. When the mouse hovers over one of three legends in the composite (grouped) chart, the bars of another two kinds of costs will become transparent, which helps to compare the costs in different years. Apart from detailed information about filtered projects, the table can provide readers with searching and sorting function.
 
-Visualisation#2 can help audiences to know detailed information of selected agencies/departments on a marco scale, such as the total number and the costs of their projects.
+Visualisation#2 can help audiences to know detailed information of selected agencies/departments on a marcoscopic scale, such as the total number and the costs of their projects.
 
 
 ##Contact

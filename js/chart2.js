@@ -8,6 +8,7 @@ var lifecycleCostChart = dc.barChart('#chart-bar-lifecycleCost'),
 	dataCount2 = dc.dataCount('#data-count-2'),
 	dataTable2;
 
+
 // Load the data and create the charts
 d3.csv('data/Projects_CW1.csv', function (error, data) {
 
@@ -58,7 +59,7 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		}),
 
 		agencyNameDim = ndx.dimension(function (d) {
-			return d["Agency_Name"]
+			return d["Agency_Name"];
 		}),
 
 		allDim = ndx.dimension(function (d) {
@@ -291,11 +292,6 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 	});
 
 
-
-
-
-
-
 	//allCostChart
 	allCostChart
 		.width(970)
@@ -466,7 +462,9 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 	});
 
 
-	//Render the charts!
+
 	dc.renderAll();
+
+
 
 });

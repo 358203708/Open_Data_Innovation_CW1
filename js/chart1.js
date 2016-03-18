@@ -1,4 +1,4 @@
-// Create variables and define the charts to use from the crossfilter library 
+// Create variables and define the charts to use from the crossfilter library
 var yearChart = dc.barChart('#chart-year-count'),
 	monthChart = dc.barChart('#chart-month-count'),
 	durationChart = dc.barChart('#chart-duration-count'),
@@ -7,6 +7,8 @@ var yearChart = dc.barChart('#chart-year-count'),
 	dataTable;
 //	dataTable = dc.dataTable('#data-table');
 
+
+var g;
 
 // Load the data and create the charts
 d3.csv('data/Projects_CW1.csv', function (error, data) {
@@ -151,27 +153,25 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 
 	//statusChart
 	statusChart
-		.width(300)
+		.width(500)
 		.height(300)
 		.dimension(statusDim)
 		.group(countPerStatus)
-		.cx(150).cy(150)
-		.ordinalColors(["#1f77b4", "#d62728", "#2ca02c", ])
+		.cx(0).cy(0)
+		.ordinalColors(["#1f77b4", "#d62728", "#2ca02c"])
 		.label(function (d) {
 			if (statusChart.hasFilter() && !statusChart.hasFilter(d.key)) {
 				return d.key + '(0%)';
 			}
 			var label = d.key;
 			if (all.value()) {
-				label += '(' + d.value + ', ' + Math.floor(d.value / all.value() * 100) + '%)';
+				label += ' (' + d.value + ', ' + Math.floor(d.value / all.value() * 100) + '%)';
 			}
 			return label;
 		})
 		.innerRadius(50)
-		.legend(dc.legend().x(125).y(130).itemHeight(13).gap(3))
+		.legend(dc.legend().x(30).y(0).itemHeight(13).gap(3))
 		.renderLabel(true);
-
-
 
 
 	//dataTable
@@ -263,7 +263,10 @@ d3.csv('data/Projects_CW1.csv', function (error, data) {
 		dc.redrawAll();
 	});
 
+
 	//Render the charts!
 	dc.renderAll();
+
+
 
 });

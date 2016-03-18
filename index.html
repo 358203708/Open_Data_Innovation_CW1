@@ -3,6 +3,7 @@
 
 <head>
 
+	<meta content="utf-8" http-equiv="encoding">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -600,14 +601,11 @@
 					 id="duration">reset</a></small></h3>
 							<div class="dc-chart" id="chart-duration-count"></div>
 						</div>
-						<div class="col-md-6">
-							<div class="row">
-								<div class="col-md-6 col-md-offset-3">
-									<h3 align="center">Status <small><a id="status">reset</a></small></h3>
 
-									<div class="dc-chart pie-chart" id="chart-ring-status"></div>
-								</div>
-							</div>
+						<div class="col-md-6 ">
+							<h3 align="center">Status <small><a id="status">reset</a></small></h3>
+
+							<div class="dc-chart pie-chart" id="chart-ring-status"></div>
 						</div>
 
 					</div>
@@ -651,7 +649,7 @@
 
 					<p class="paragraph">The row chart, the bubble chart and three bar charts can be used to filter the projects displayed in the table. Moreover, the row chart can show the number of different agencies/departments' projects and the bubble chart can provide detailed information via its tooltip. When the mouse hovers over one of three legends in the composite (grouped) chart, the bars of another two kinds of costs will become transparent, which helps to compare the costs in different years. Apart from detailed information about filtered projects, the table can provide readers with searching and sorting function. </p>
 
-					<p class="paragraph">Visualisation#2 can help audiences to know detailed information of selected agencies/departments on a marco scale, such as the total number and the costs of their projects. </p>
+					<p class="paragraph">Visualisation#2 can help audiences to know detailed information of selected agencies/departments on a marcoscopic scale, such as the total number and the costs of their projects. </p>
 					<hr class="small">
 
 
@@ -729,6 +727,7 @@
 
 	<!-- D3js -->
 	<script src="js/d3.min.js" charset="utf-8"></script>
+	<script src="js/d3.tip.min.js"></script>
 
 
 	<!-- crossfilter.js -->
@@ -736,6 +735,7 @@
 
 	<!-- dc.js -->
 	<script src="js/dc.js"></script>
+
 
 	<!--	colorbrewer.js-->
 	<script src="js/colorbrewer.js"></script>
